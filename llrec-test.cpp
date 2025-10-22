@@ -67,7 +67,9 @@ void dealloc(Node* head)
 //   function object struct declarations
 // -----------------------------------------------
 
-
+struct intTest {
+    bool operator()(int x) const {return (x % 2) != 0;}
+};
 
 
 
@@ -88,7 +90,30 @@ int main(int argc, char* argv[])
     // Test out your linked list code
 
 
+    Node* pivot = head;
+    Node* smaller = nullptr;
+    Node* larger = nullptr;
 
+    llpivot(pivot, smaller, larger, 10);
+
+    cout << "Pivot: ";
+    print(pivot);
+
+    cout << "Smaller: ";
+    print(smaller);
+
+    cout << "Larger: ";
+    print(larger);
+
+    dealloc(smaller);
+    dealloc(larger);
+
+//    head = llfilter(head, intTest{});
+//
+//    cout << "Filtered list: ";
+//    print(head);
+//
+//    dealloc(head);
     
     return 0;
 
